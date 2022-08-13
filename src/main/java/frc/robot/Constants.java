@@ -33,5 +33,7 @@ public final class Constants {
 
 	public static final double VOLTAGE = 2;
 
-	public static final int BUTTON = XboxController.Button.kA.value;
+	public static final int MOTOR_BUTTON = XboxController.Button.kA.value;
+
+	public static final int SENSOR_BUTTON = XboxController.Button.kB.value;
 }

@@ -4,9 +4,8 @@
 
 package frc.robot.subsystems;
 
-import com.revrobotics.CANEncoder;
 import com.revrobotics.CANSparkMax;
-import com.revrobotics.CANSparkMax.IdleMode;
+import com.revrobotics.RelativeEncoder;
 
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
@@ -16,7 +15,7 @@ public class NeoTestSubsystem extends SubsystemBase {
   /** Creates a new NeoTestSubsystem. */
 
   private CANSparkMax motor;
-  private CANEncoder encoder;
+  private RelativeEncoder encoder;
 
   public NeoTestSubsystem() {
     motor = new CANSparkMax(Constants.NEO_CAN_ID, Constants.MOTOR_TYPE);

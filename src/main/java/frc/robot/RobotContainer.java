@@ -9,6 +9,7 @@ import edu.wpi.first.wpilibj.XboxController;
 import frc.robot.commands.ExampleCommand;
 import frc.robot.subsystems.ExampleSubsystem;
 import frc.robot.subsystems.NeoTestSubsystem;
+import frc.robot.subsystems.ColorSensorSubsystem;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.InstantCommand;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
@@ -27,11 +28,13 @@ public class RobotContainer {
 
   private final XboxController controller;
   private final NeoTestSubsystem neoTestSubsystem;
+  private final ColorSensorSubsystem colorSensorSubsystem;
 
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
   public RobotContainer() {
     controller = new XboxController(Constants.CONTROLLER);
     neoTestSubsystem = new NeoTestSubsystem();
+    colorSensorSubsystem = new ColorSensorSubsystem();
     // Configure the button bindings
     configureButtonBindings();
   }
@@ -43,9 +46,11 @@ public class RobotContainer {
    * edu.wpi.first.wpilibj2.command.button.JoystickButton}.
    */
   private void configureButtonBindings() {
-    new JoystickButton(controller, Constants.BUTTON)
+    new JoystickButton(controller, Constants.MOTOR_BUTTON)
         .whenPressed(new InstantCommand(neoTestSubsystem::start, neoTestSubsystem))
         .whenReleased(new InstantCommand(neoTestSubsystem::stop, neoTestSubsystem));
+    new JoystickButton(controller, Constants.SENSOR_BUTTON)
+        .whenPressed(new InstantCommand(colorSensorSubsystem::read, colorSensorSubsystem));
   }
 
   /**
