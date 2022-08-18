@@ -19,7 +19,11 @@ import com.revrobotics.CANSparkMax.IdleMode;
  * constants are needed, to reduce verbosity.
  */
 public final class Constants {
-    public static final int NEO_CAN_ID = 2;
+    public static final int TURN_MOTOR_ID = 3;
+
+	public static final int DRIVE_MOTOR_ID = 6;
+
+	public static final int CANCODER_ID = 23;
     
     public static final MotorType MOTOR_TYPE = MotorType.kBrushless;
 
