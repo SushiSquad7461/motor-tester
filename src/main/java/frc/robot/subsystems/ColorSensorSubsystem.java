@@ -37,5 +37,8 @@ public class ColorSensorSubsystem extends SubsystemBase {
     SmartDashboard.putNumber("Blue", detectedColor.blue);
     SmartDashboard.putNumber("IR", IR);
     SmartDashboard.putNumber("Proximity", proximity);
+
+    SmartDashboard.putNumber("ratio", detectedColor.red/detectedColor.blue);
+    SmartDashboard.putString("color", (detectedColor.red/detectedColor.blue) < 2 ? "blue" : "red");
   }
 }
